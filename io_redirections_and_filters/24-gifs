@@ -1,0 +1,2 @@
+#!/bin/bash
+find . -type f \( -name "*.gif" -o -name ".*.gif" \) | while read -r f; do n="${f##*/}"; echo "${n%.gif}"; done | sort -f
