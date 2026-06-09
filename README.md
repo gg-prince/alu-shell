@@ -1,1 +1,1 @@
-# alu-shell
+ALU Shell root directory/ repository
