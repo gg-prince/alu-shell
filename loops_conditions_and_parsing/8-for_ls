@@ -5,5 +5,6 @@ contents=$(ls)
 
 for content in $contents;
 do
-echo "$content"
+	[ -e "$content" ] || continue
+	echo "${content#*-}"
 done
