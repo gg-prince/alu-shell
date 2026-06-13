@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#Displaying contents of directory as a list
+
+contents=$(ls)
+
+for content in $contents;
+do
+echo "$content"
+done
