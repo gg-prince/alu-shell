@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Grepping my processes's pid without using pgrep
+# shellcheck disable=SC2009
+ps -ef | grep bash | grep -v grep
