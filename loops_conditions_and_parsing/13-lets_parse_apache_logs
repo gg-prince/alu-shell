@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#Displaying only IP address and HTTP status code from a certain file using awk
+
+LOG_FILE=apache-access.log
+
+awk '{print $1, $9}' "$LOG_FILE"
