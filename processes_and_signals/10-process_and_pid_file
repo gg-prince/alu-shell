@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#!One creepy script
+PID_FILE="/var/run/myscript.pid"
+
+# Function to handle clean exit (SIGTERM and SIGQUIT)
+cleanup_and_exit() {
+    if [ "$1" = "SIGTERM" ]; then
+        echo "I hate the kill command"
+    fi
+    rm -f "$PID_FILE"
+    exit 0
+}
+
+echo "$$" > "$PID_FILE"
+
+trap 'cleanup_and_exit SIGTERM' SIGTERM
+trap 'cleanup_and_exit SIGQUIT' SIGQUIT
+trap 'echo "Y U no love me?!"' SIGINT
+
+while true; do
+    echo "To infinity and beyond"
+    sleep 2
+done
