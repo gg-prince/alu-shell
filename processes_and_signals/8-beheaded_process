@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#!Stopping a certain process if it runs
+pkill -f "7-highlander"
+echo "Killed"
