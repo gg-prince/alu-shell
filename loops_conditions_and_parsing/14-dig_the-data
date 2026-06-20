@@ -2,5 +2,5 @@
 #Displaying IPs and HTTPSs in groups
 
 LOG_FILE=apache-access.log
+awk '{ count[$1" "$9]++ } END { for (key in count) print count[key]" "key }' "$LOG_FILE" | sort -k1,1nr -k2
 
-awk '{ count[$1" "$9]++ } END { for (key in count) print count[key], key }' "$LOG_FILE" | sort -rn
