@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 #!Stopping a certain process if it runs
-kill -9 "7-highlander"
+
+pid=$(pgrep -f "7-highlander")
+kill -9 "$pid"
 echo "Killed"
