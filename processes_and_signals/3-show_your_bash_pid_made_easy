@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#Displaying pid without using ps
+
+for pid in /proc/[0-9]*/; do
+    pid_num=$(basename "$pid")
+    if [ -f "${pid}comm" ]; then
+        proc_name=$(cat "${pid}comm")
+        if [[ "$proc_name" == *bash* ]]; then
+            echo "$pid_num $proc_name"
+        fi
+    fi
+done
