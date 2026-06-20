@@ -17,6 +17,10 @@ if [ -f "$File" ]; then
 		echo "school is a regular file"
 	fi
 
+elif [ -d "$File" ]; then
+
+	echo "school file exists"
+
 else
 	echo "school file does not exist"
 
