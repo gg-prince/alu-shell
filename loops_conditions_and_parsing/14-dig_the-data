@@ -1,3 +1,13 @@
 #!/usr/bin/env bash
 #Displaying IPs and HTTPSs in groups
-awk '{print $1, $9}' apache_access.log | sort | uniq -c | sort -nr
+
+awk '
+$1 ~ /^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$/ && $9 ~ /^[0-9]{3}$/ {
+    count[$1" "$9]++
+}
+END {
+    for (pair in count) {
+        print count[pair], pair
+    }
+}
+' "${1:-/dev/stdin}" | sort -rn
